@@ -23,12 +23,18 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-const port=6000;
+const port=5000;
 
 app.listen(port,()=>{
     console.log(port);
 })
-
+app.get('/',(req,res)=>{
+    res.send('welcome')
+})
 const login=require('./Routers/login');
 const registration=require("./Routers/registration");
-app.use(login,registration);
+const category=require("./Routers/category");
+const product=require("./Routers/product");
+const admin=require("./Routers/master");
+const order=require("./Routers/order");
+app.use(login,registration,category,product,admin,order);

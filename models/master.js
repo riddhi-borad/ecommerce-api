@@ -12,28 +12,28 @@ var newschema={
         required:true,
 
     },
-   accessCusSer:{
+    accessCusSer:{
         type:String,
         trim:true,
-        required:true
+        // required:true
     },
     accessorder:{
         type:String,
         trim:true,
-        required:true
+        // required:true
     },
-   paymentsetting:{
+    paymentsetting:{
     type:String,
         trim:true,
-        required:true
+        // required:true
     },
-   createdDt:{
+    createdDt:{
     type:Date,
     required:true
    },
-   modifyDt:{
+   modifiedDt:{
     type:Date,
     required:true
    }
 }
-module.exports=master=mongoose.model('masters',newschema)
+module.exports=Master=mongoose.model('masters',newschema)

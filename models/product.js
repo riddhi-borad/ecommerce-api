@@ -1,4 +1,5 @@
 const mongoose=require('mongoose');
+const Schema=mongoose.Schema
 var newschema={
    productId:{
         type:String,
@@ -6,37 +7,59 @@ var newschema={
         required:true,
 
     },
-    mail:{
+    type:{
         type:String,
         trim:true,
         // required:true,
 
     },
-    password:{
+    categoryId:{
+        type:Schema.Types.ObjectId,
+        ref:"categories",
+    },
+    brand:{
         type:String,
         trim:true,
         required:true
     },
-    mobileNo:{
-        type:Number,
+    length:{
+        type:String,
         trim:true,
-        required:true
     },
-    userType:{
+    size:{
+        type:String,
+        trim:true,
+        // required:true,
+    },
+    design:{
+        type:String,
+        trim:true,
+        // required:true,
+    },
+    description:{
         type:String,
         trim:true,
         required:true,
     },
-    Image:{
+    return:{
         type:String,
         trim:true,
+        // required:true,
     },
-    address:{
-        tyep:String,
+    refunds:{
+        type:String,
         trim:true,
-        required:true,
+        // required:true,
     },
-
-   
+    image:{
+        type:Array,
+        trim:true,
+        // required:true,
+    },
+    conditions:{
+        type:String,
+        trim:true,
+        // required:true,
+    },
 }
-module.exports=User=mongoose.model('users',newschema)
+module.exports=Product=mongoose.model('products',newschema)
