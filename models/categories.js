@@ -1,17 +1,19 @@
 const mongoose=require('mongoose');
-var newschema={
-    categoryId:{
+const Schema=mongoose.Schema
+var ObjectId=Schema.ObjectId;
+var newschema=new mongoose.Schema({
+    categoryid:{
+        type:Number,
+        trim:true,
+        required:true,
+
+    },
+    categorytype:{
         type:String,
         trim:true,
         required:true,
 
     },
-    // categorytype:{
-    //     type:String,
-    //     trim:true,
-    //     required:true,
-
-    // },
    subcategory:{
         type:String,
         trim:true,
@@ -23,5 +25,5 @@ var newschema={
         // required:true
     },
    
-}
+});
 module.exports=category=mongoose.model('categories',newschema)

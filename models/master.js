@@ -1,16 +1,14 @@
 const mongoose=require('mongoose');
 var newschema={
-    id:{
+    uniqid:{
         type:String,
         trim:true,
         required:true,
-
     },
     usertype:{
         type:String,
         trim:true,
         required:true,
-
     },
     accessCusSer:{
         type:String,

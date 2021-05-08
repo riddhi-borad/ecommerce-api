@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 const Schema=mongoose.Schema
-var newschema={
+var newschema=new mongoose.Schema({
    productId:{
         type:String,
         trim:true,
@@ -13,9 +13,10 @@ var newschema={
         // required:true,
 
     },
-    categoryId:{
-        type:Schema.Types.ObjectId,
-        ref:"categories",
+    catId:{
+        type:Number,
+        trim:true,
+        required:true,
     },
     brand:{
         type:String,
@@ -61,5 +62,16 @@ var newschema={
         trim:true,
         // required:true,
     },
-}
+},
+{
+    toObject: {virtuals:true},
+    toJSON: {virtuals:true} 
+});
+
+newschema.virtual('category', {
+    ref: 'categories',
+    localField: 'catId',
+    foreignField: 'categoryid',
+    justOne: true // for many-to-1 relationships
+  });
 module.exports=Product=mongoose.model('products',newschema)

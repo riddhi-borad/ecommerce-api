@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const Category=require("./../models/categories");
+
 router.post('/saveCategory',(req,res)=>{
+
     let addCategory={
-    categoryId:Math.random(),
+    categoryid:req.body.id,
     categorytype:req.body.categorytype,
     subcategory:req.body.subcategory,
     catname:req.body.catname
